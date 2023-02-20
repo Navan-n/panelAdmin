@@ -9,20 +9,32 @@ use App\Models\Magazine\Tag;
 
 class PostController extends Controller
 {
-    public function index()
+        public function index()
     {
         $post = Post::with('tags' , 'categories')->get();
-        dd('Home Page');
+            dd('Home Page');
         return view('homepage',[
             'post' => $post,
 
         ]);
     }
-    public function show(Post $post)
-    {
-        dd('Post Page');
+        public function show(Post $post)
+            {
+            dd('Post Page');
         return view('posts', [
             'post' => $post
         ]);
-    }
+            }
+        public function create()
+            {
+        return view('createpost');
+            }
+        public function store(Request $request)
+            {
+            $post = new Post;
+            $post->title = $request->title;
+            $post->description = $request->description;
+            $post->save();
+        return redirect('/')->with('status', 'اطلاعات با موفقیت ذخیره شد');
+            }
 }
