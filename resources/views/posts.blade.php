@@ -7,6 +7,7 @@
     <title>Laravel</title>
 </head>
 <body>
+
     <div>
         <h2>{{$post->title}}</h2>
        

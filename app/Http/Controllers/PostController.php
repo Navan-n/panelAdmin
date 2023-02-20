@@ -12,13 +12,15 @@ class PostController extends Controller
     public function index()
     {
         $post = Post::with('tags' , 'categories')->get();
-        
+        dd('Home Page');
         return view('homepage',[
             'post' => $post,
+
         ]);
     }
     public function show(Post $post)
     {
+        dd('Post Page');
         return view('posts', [
             'post' => $post
         ]);
@@ -26,7 +28,7 @@ class PostController extends Controller
 
     public function store()
     {
-        dd('tets');
+        
         return view('createpost');
     }
 }

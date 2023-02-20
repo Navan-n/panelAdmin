@@ -7,7 +7,7 @@
     <title>Laravel</title>
 </head>
 <body>
-   
+  
     <div>
         <a href="/posts/{{$post[0]->slug}}"><h2>{{$post[0]->title}}</h2></a>
         @foreach($post[0]->tags as $tag)
@@ -41,6 +41,7 @@
         <p>{{$post[2]->body}}</p>
         <span>{{$post[2]->creatDate}}</span>
     </div>
+
 
 </body>
 </html>
