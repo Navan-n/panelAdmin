@@ -34,4 +34,30 @@ class CategoryController extends Controller
         Category::create($attribiutes);
         return redirect('/');
     }
+
+    public function edit($id)
+    {   
+        $category = Category::find($id);
+
+        return view('editcategory',[
+            'category' => $category
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'title'=>'required',
+            'slug'=>'required|unique:mag_categories',
+            'order'=>'required',
+            'status'=>'',
+            'meta_desc'=>'required',
+            'meta_title'=>'required',
+            'description'=>'required'
+        ]);
+        $category = $request->all();
+        unset($category['_token']);
+        Category::where('id', $id)->update($category);
+        return redirect('/');
+    }
 }

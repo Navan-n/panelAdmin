@@ -13,10 +13,13 @@ Route::post('posts/store',[PostController::class, 'store']);
 Route::get('categories',[CategoryController::class, 'index']);
 Route::get('category/create',[CategoryController::class, 'create']);
 //Route::get('categories/{category:slug}',[CategoryController::class, 'show']);
+Route::get('category/{id}/edit', [CategoryController::class, 'edit']);
+Route::post('category/{id}',[CategoryController::class, 'update']);
 Route::post('category/store',[CategoryController::class, 'store']);
 
 Route::get('tags',[TagController::class, 'index']);
 Route::get('tags/create',[TagController::class, 'create']);
 //Route::get('tags/{tag:slug}',[TagController::class, 'show']);
-Route::match(['post','get'],'tags/craete/{id}',[TagController::class, 'update']);
-Route::post('tags/store', [TagController::class, 'store']);
+Route::get('tags/{id}/edit',[TagController::class,'edit']);
+Route::post('tags/{id}',[TagController::class, 'update']);
+Route::post('tags/store',[TagController::class, 'store']);
