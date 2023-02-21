@@ -19,14 +19,13 @@ class CreateMagCategoriesTable extends Migration
             $table->string('slug')->unique();
             $table->string('meta_title');
             $table->mediumText('meta_desc');
-            $table->longText('description');
-            $table->bigInteger('parent');
+            $table->longText('description')->nullable();
+            $table->bigInteger('parent')->nullable();
             $table->integer('order');
             $table->tinyInteger('status');
-            $table->bigInteger('createdBy');
-            $table->bigInteger('editedBy');   
-            $table->timestamp('createDate')->nullable();
-            $table->timestamp('editDate')->nullable();
+            $table->bigInteger('createdBy')->nullable();
+            $table->bigInteger('editedBy')->nullable();   
+            $table->timestamps();
         });
     }
 

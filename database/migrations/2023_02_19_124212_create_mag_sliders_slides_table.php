@@ -28,8 +28,7 @@ class CreateMagSlidersSlidesTable extends Migration
             $table->tinyInteger('mobile');
             $table->bigInteger('createdBy');
             $table->bigInteger('editedBy');
-            $table->timestamp('editDate');
-            $table->timestamp('createDate');
+            $table->timestamps();
         });
     }
 

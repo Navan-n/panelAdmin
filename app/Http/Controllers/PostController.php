@@ -1,40 +1,49 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Models\Magazine\Post;
-use App\Models\Magazine\Category;
-use App\Models\Magazine\Tag;
+
 
 class PostController extends Controller
 {
         public function index()
     {
         $post = Post::with('tags' , 'categories')->get();
-            dd('Home Page');
+           
         return view('homepage',[
-            'post' => $post,
+            'post' => $post
 
         ]);
     }
         public function show(Post $post)
             {
-            dd('Post Page');
+        
         return view('posts', [
             'post' => $post
         ]);
             }
         public function create()
             {
+
         return view('createpost');
             }
-        public function store(Request $request)
+        public function store()
             {
-            $post = new Post;
-            $post->title = $request->title;
-            $post->description = $request->description;
-            $post->save();
-        return redirect('/')->with('status', 'اطلاعات با موفقیت ذخیره شد');
+                $attribiutes=request()->validate([
+                    'title'=>'required',
+                    'slug'=>'required|unique:mag_posts',
+                    'abstracted'=>'required',
+                    'body'=>'required',
+                    'meta_desc'=>'required',
+                    'meta_title'=>'required',
+                    'alt'=>'required',
+                    'chief_select'=>'required',
+                    'source'=>'required',
+                    'source_link'=>'required'
+                ]);
+        
+                Post::create($attribiutes);
+        
+                return redirect('/');
             }
 }

@@ -19,11 +19,10 @@ class CreateMagTagsTable extends Migration
             $table->string('slug')->unique();
             $table->string('meta_desc');
             $table->longText('body');
-            $table->tinyInteger('hot');
-            $table->bigInteger('createdBy');
-            $table->bigInteger('editedBy');
-            $table->timestamp('createDate');
-            $table->timestamp('editDate');
+            $table->tinyInteger('hot')->nullable();
+            $table->bigInteger('createdBy')->nullable();
+            $table->bigInteger('editedBy')->nullable();
+            $table->timestamps();
         });
     }
 

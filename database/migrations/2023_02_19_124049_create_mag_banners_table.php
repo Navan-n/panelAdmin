@@ -28,8 +28,7 @@ class CreateMagBannersTable extends Migration
             $table->tinyInteger('status');
             $table->bigInteger('cratedBy');
             $table->bigInteger('editedBy');
-            $table->timestamp('createDate')->nullable();
-            $table->timestamp('editDate')->nullable();
+            $table->timestamps();
         });
     }
 

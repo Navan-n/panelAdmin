@@ -12,11 +12,11 @@
         <h2>{{$post->title}}</h2>
        
         @foreach($post->tags as $tag)
-           <a href="/tags/{{$tag->slug}}"> <div>{{$tag->title}}</div> </a>
+           <a href="/tags/{{$tag->slug}}"> <div>{{$tag->title}}</div></a>
         @endforeach
         
         @foreach($post->categories as $category)
-           <a href="/categories/{{$category->slug}}"> <span>{{$category->title}}</span> </a>
+           <a href="/categories/{{$category->slug}}"> <span>{{$category->title}}</span></a>
         @endforeach
             <p>{{$post->body}}</p>
             <span>{{$post->creatDate}}</span>

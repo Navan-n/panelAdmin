@@ -26,8 +26,7 @@ class CreateMagCommentsTable extends Migration
             $table->tinyInteger('status');
             $table->bigInteger('createdBy');
             $table->bigInteger('editedBy');
-            $table->timestamp('createDate')->nullable();
-            $table->timestamp('editDate')->nullable();
+            $table->timestamps();
         });
     }
 

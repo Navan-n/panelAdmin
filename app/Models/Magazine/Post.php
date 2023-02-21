@@ -11,7 +11,19 @@ class Post extends Model
     
     protected $table = 'mag_posts';
 
-    
+    protected $fillable = [
+        'title',
+        'slug',
+        'abstracted',
+        'body',
+        'meta_desc',
+        'meta_title',
+        'alt',
+        'chief_select',
+        'source',
+        'source_link'
+    ];
+
     public function comments()
     {
         return $this->hasMany(Comment::class);

@@ -11,6 +11,17 @@ class Category extends Model
 
     protected $table = 'mag_categories' ;
 
+    protected $fillable = [
+        'title',
+        'slug',
+        'order',
+        'status',
+        'meta_desc',
+        'meta_title',
+        'description'
+        
+    ];
+
     public function posts()
     {
         return $this->belongsToMany(Post::class, 'mag_posts_category', 'category_id', 'post_id');

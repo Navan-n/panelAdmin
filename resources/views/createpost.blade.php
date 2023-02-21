@@ -9,79 +9,152 @@
         <body>
    
     
-            <form method="Post" action="posts/store">
+            <form method="Post" action="/posts/store">
                 @csrf
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                <div>
+                    <label
                            for="title">
-                        Title
+                        نام مقاله
                     </label>
-                    <input class="border border-gray-400 p-2 w-full"
+                    <input 
                            type="text"
                            name="title"
                            id="title"
                            value="{{ old('title') }}"
                            required>
                 </div>
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                <div>
+                    <label
                            for="slug">
-                        Slug
+                        آدرس کوتاه
                     </label>
-                    <input class="border border-gray-400 p-2 w-full"
+                    <input
                            type="text"
                            name="slug"
                            id="slug"
                            value="{{old( 'slug' )}}"
                            required>
                     @error('slug')
-                    <p class="text-red-500 text-xs mt-2">{{$message}}</p>
+                    <p>{{$message}}</p>
                     @enderror
                 </div>
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                           for="excerpt">
-                        Excerpt
+                <div>
+                    <label
+                           for="abstracted">
+                        خلاصه مطلب
                     </label>
-                    <textarea class="border border-gray-400 p-2 w-full"
-                              name="excerpt"
-                              id="excerpt"
+                    <textarea
+                              name="abstracted"
+                              id="abstracted"
                               required>
-                        {{old('excerpt')}}
+                        {{old('abstracted')}}
                     </textarea>
                     @error('excerpt')
-                    <p class="text-red-500 text-xs mt-2">{{$message}}</p>
+                    <p>{{$message}}</p>
                     @enderror
                 </div>
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                <div>
+                    <label
                            for="body">
-                        Body
+                        متن مقاله
                     </label>
-                    <textarea class="border border-gray-400 p-2 w-full"
+                    <textarea
                               name="body"
                               id="body"
                               required>
                         {{old('body')}}
                     </textarea>
                     @error('body')
-                    <p class="text-red-500 text-xs mt-2">{{$message}}</p>
+                    <p>{{$message}}</p>
                     @enderror
                 </div>
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                           for="category_id">
-                        Title
+                <div>
+                    <label
+                           for="meta_desc">
+                        توضیحات متا
                     </label>
-                    <select name="category_id" id="category_id">
-
-                       
-
-                    </select>
-
+                    <input 
+                           type="text"
+                           name="meta_desc"
+                           id="meta_desc"
+                           value="{{ old('meta_desc') }}"
+                           required>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div>
+                    <label
+                           for="meta_title">
+                         عنوان مرورگر    
+                    </label>
+                    <input 
+                           type="text"
+                           name="meta_title"
+                           id="meta_title"
+                           value="{{ old('meta_title') }}"
+                           required>
+                </div>
+                <div>
+                    <label
+                           for="alt">
+                          alt تصویر
+                    </label>
+                    <input 
+                           type="text"
+                           name="alt"
+                           id="alt"
+                           value="{{ old('alt') }}"
+                           required>
+                </div>
+                
+                <div>
+                    <label
+                           for="chief_select">
+                        منتخب سردبیر
+                    </label>
+                    <input 
+                           type="text"
+                           name="chief_select"
+                           id="chief_select"
+                           value="{{ old('chief_select') }}"
+                           required>
+                </div>
+                <div>
+                    <label
+                           for="source">
+                         منبع
+                    </label>
+                    <input 
+                           type="text"
+                           name="source"
+                           id="source"
+                           value="{{ old('source') }}"
+                           required>
+                </div>
+                <div>
+                    <label
+                           for="source_link">
+                         لینک منبع
+                    </label>
+                    <input 
+                           type="text"
+                           name="source_link"
+                           id="source_link"
+                           value="{{ old('source_link') }}"
+                           required>
+                </div>
+                <div>
+                    <label
+                           for="auther">
+                        نویسنده 
+                    </label>
+                    <input 
+                           type="text"
+                           name="auther"
+                           id="auther"
+                           value="0"
+                           required>
+                </div>
+                <button type="submit">Submit</button>
             </form>
-      
+
     </body>
 </html>
