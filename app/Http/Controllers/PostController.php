@@ -29,8 +29,9 @@ class PostController extends Controller
 
         return view('createpost');
             }
-        public function store()
+        public function store(Request $request)
             {
+                // dd($request->all());
                 $attribiutes=request()->validate([
                     'title'=>'required',
                     'meta_title'=>'required',
@@ -47,9 +48,11 @@ class PostController extends Controller
                     'alt'=>'required',
                     'type'=>'required'
                 ]);
-        
-                Post::create($attribiutes);
-        
+                
+                //give the post as a object after store that we attach tags and categores
+                $post = Post::create($attribiutes);
+                $post->tags()->attach($request->tag_id);
+                $post->categories()->attach($request->category_id);
                 return redirect('/');
             }
 
@@ -79,6 +82,7 @@ class PostController extends Controller
                     'alt'=>'required',
                     'type'=>'required'
                 ]);
+
 
                 $post = $request->all();
                 unset($post['_token']);

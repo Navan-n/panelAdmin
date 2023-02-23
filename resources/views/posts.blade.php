@@ -7,8 +7,16 @@
     <title>Laravel</title>
 </head>
 <body>
-
+    
     <div>
+        تگ ها
+        @foreach($post->tags as $tag)
+            <div>{{$tag->id}}</div>
+        @endforeach    
+        دسته بندی ها
+        @foreach($post->categories as $category)
+            <div>{{$category->id}}</div>
+        @endforeach 
         <h2>{{$post->title}}</h2>
         <span>{{$post->created_at}}</span>
         <p>{{$post->body}}</p>

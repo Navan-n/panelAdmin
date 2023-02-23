@@ -9,6 +9,27 @@
         <body>
             <form method="Post" action="/posts/store">
                 @csrf
+
+                <div>
+                    <label
+                           for="parent">
+                        تگ ها                    
+                    </label>
+                    <input type="text" name="tag_id[0]" value="1">
+                    <input type="text" name="tag_id[1]" value="2">
+                    <input type="text" name="tag_id[2]" value="3">
+                </div>
+
+                <div>
+                    <label
+                           for="parent">
+                        دستهبندی ها                    
+                    </label>
+                    <input type="text" name="category_id[0]" value="1">
+                    <!-- <input type="text" name="category_id[1]" value="2">
+                    <input type="text" name="category_id[2]" value="3"> -->
+                </div>
+
                 <div>
                     <label
                            for="title">
