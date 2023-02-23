@@ -10,17 +10,23 @@
 
     <div>
         <h2>{{$post->title}}</h2>
-       
-        @foreach($post->tags as $tag)
-           <a href="/tags/{{$tag->slug}}"> <div>{{$tag->title}}</div></a>
-        @endforeach
-        
-        @foreach($post->categories as $category)
-           <a href="/categories/{{$category->slug}}"> <span>{{$category->title}}</span></a>
-        @endforeach
-            <p>{{$post->body}}</p>
-            <span>{{$post->creatDate}}</span>
+        <span>{{$post->created_at}}</span>
+        <p>{{$post->body}}</p>
+        <div>{{$post->meta_title}}</div>
+        <div>{{$post->meta_desc}}</div>
+        <div>{{$post->abstracted}}</div>
+        <div>{{$post->slug}}</div>
+        <div>{{$post->body}}</div>
+        <div>{{$post->published}}</div>
+        <div>{{$post->published_date}}</div>
+        <div>{{$post->source}}</div>
+        <div>{{$post->source_link}}</div>
+        <div>{{$post->chief_select}}</div>
+        <div>{{$post->embed}}</div>
+        <div>{{$post->alt}}</div>
+        <div>{{$post->type}}</div>
     </div>
+    <a href="/posts/{{$post->id}}/edit">ادیت پست</a><br>
     <a href="/">خانه</a>
 </body>
 </html>

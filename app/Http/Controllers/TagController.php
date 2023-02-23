@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Magazine\Tag;
 class TagController extends Controller
@@ -17,7 +16,7 @@ class TagController extends Controller
     }
     public function show()
     {
-        //
+        // 
     }
     
     public function create()
@@ -31,7 +30,9 @@ class TagController extends Controller
             'title'=>'required',
             'slug'=>'required|unique:mag_tags',
             'meta_desc'=>'required',
-            'body'=>'required'
+            'body'=>'required',
+            'hot'=>''
+            
         ]);
         Tag::create($attribiutes);
         return redirect('/');
@@ -40,7 +41,6 @@ class TagController extends Controller
     public function edit($id)
     {
         $tag = Tag::find($id);
-    
         return view('edittag',[
             'tag' => $tag
         ]);
@@ -50,12 +50,13 @@ class TagController extends Controller
         
         $request->validate([
             'title'=>'required',
-            'slug'=>'required|unique:mag_tags',
+            'slug'=>'required|unique:mag_tags,slug,'.$id , 
             'meta_desc'=>'required',
-            'body'=>'required'
+            'body'=>'required',
+            'hot'=>''
         ]);
-        
         $tag = $request->all();
+        if(!isset($tag['hot'])) $tag['hot'] = 0;
         //unset for token error
         unset($tag['_token']);
         Tag::where('id' , $id)->update($tag);

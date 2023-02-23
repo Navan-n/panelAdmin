@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Laravel</title>
 </head>
+   
         <body>
-            <form method="Post" action="/posts/store">
+            <form method="Post" action="/posts/{{$post->id}}">
                 @csrf
                 <div>
                     <label
@@ -18,7 +19,7 @@
                            type="text"
                            name="title"
                            id="title"
-                           value="{{ old('title') }}"
+                           value="{{$post->title}}"
                            required>
                            @error('title')
                             <p>{{$message}}</p>
@@ -33,7 +34,7 @@
                            type="text"
                            name="meta_title"
                            id="meta_title"
-                           value="{{ old('meta_title') }}"
+                           value="{{$post->meta_title}}"
                            required>
                            @error('meta_title')
                     <p>{{$message}}</p>
@@ -48,7 +49,7 @@
                            type="text"
                            name="meta_desc"
                            id="meta_desc"
-                           value="{{ old('meta_desc') }}"
+                           value="{{$post->meta_desc}}"
                            required>
                            @error('meta_desc')
                             <p>{{$message}}</p>
@@ -63,7 +64,7 @@
                               name="abstracted"
                               id="abstracted"
                               required>
-                        {{old('abstracted')}}
+                        {{$post->abstracted}}
                     </textarea>
                     @error('abstracted')
                     <p>{{$message}}</p>
@@ -78,7 +79,7 @@
                            type="text"
                            name="slug"
                            id="slug"
-                           value="{{old( 'slug' )}}"
+                           value="{{$post->slug}}"
                            required>
                     @error('slug')
                     <p>{{$message}}</p>
@@ -93,7 +94,7 @@
                               name="body"
                               id="body"
                               required>
-                        {{old('body')}}
+                        {{$post->body}}
                     </textarea>
                     @error('body')
                     <p>{{$message}}</p>
@@ -106,10 +107,16 @@
                 <option value="1">بلی</option>
                 <option value="0">خیر</option>
                 </select>
+                @error('published')
+                            <p>{{$message}}</p>
+                        @enderror
             </div>
             <div>
                 <label for="published_date">تاریخ انتشار:</label>
                 <input type="date" id="published_date" name="published_date">
+                @error('published_date')
+                            <p>{{$message}}</p>
+                        @enderror
             </div>
             <div>
                     <label
@@ -120,8 +127,11 @@
                            type="text"
                            name="source"
                            id="source"
-                           value="{{ old('source') }}"
+                           value="{{$post->source}}"
                            required>
+                           @error('source')
+                            <p>{{$message}}</p>
+                        @enderror
                 </div>
                 <div>
                     <label
@@ -132,8 +142,11 @@
                            type="text"
                            name="source_link"
                            id="source_link"
-                           value="{{ old('source_link') }}"
+                           value="{{$post->source_link}}"
                            required>
+                           @error('source_link')
+                            <p>{{$message}}</p>
+                        @enderror
                 </div>
                 <div>
             <label for="chief_select">منتخب سردبیر</label>
@@ -141,6 +154,9 @@
                 <option value="1">بلی</option>
                 <option value="0">خیر</option>
                 </select>
+                @error('chief_select')
+                            <p>{{$message}}</p>
+                        @enderror
             </div>
                 <div>
                     <label
@@ -151,8 +167,11 @@
                            type="text"
                            name="embed"
                            id="embed"
-                           value="{{ old('embed') }}"
+                           value="{{$post->embed}}"
                            required>
+                           @error('embed')
+                            <p>{{$message}}</p>
+                        @enderror
                 </div>
                 <div>
                     <label
@@ -163,8 +182,11 @@
                            type="text"
                            name="alt"
                            id="alt"
-                           value="{{ old('alt') }}"
+                           value="{{$post->alt}}"
                            required>
+                           @error('alt')
+                            <p>{{$message}}</p>
+                        @enderror
                 </div>
                 <div>
             <label for="type">محتوای ویدئویی</label>
@@ -172,6 +194,9 @@
                 <option value="1">بلی</option>
                 <option value="0">خیر</option>
                 </select>
+                @error('type')
+                            <p>{{$message}}</p>
+                        @enderror
             </div>
             
                 <div>
@@ -185,9 +210,12 @@
                            id="auther"
                            value="0"
                            required>
+                           @error('auther')
+                            <p>{{$message}}</p>
+                        @enderror
                 </div>
                 <button type="submit">Submit</button>
+                <?php  ?>
             </form>
-
     </body>
 </html>

@@ -20,6 +20,9 @@
                            id="title"
                            value="{{ old('title') }}"
                            required>
+                           @error('title')
+                    <p>{{$message}}</p>
+                    @enderror
                 </div>
                 <div>
                     <label
@@ -38,17 +41,21 @@
                 </div>
                 <div>
                     <label
-                           for="parent">
+                           for="parent_id">
                         دسته بندی پدر
                     </label>
                     <select 
-                        name="parent" 
-                        id="id">
+                        name="parent_id" 
+                        id="parent_id">
+                            <option value="0">هیچ کدام</option>
                         @foreach(App\Models\Magazine\Category::all() as $category)
                             <option 
-                            value="{{$category->title}}" {{ old('category_id') == $category->id ? 'selected' :''}} >{{ucwords($category->title)}}</option>
+                            value="{{$category->id}}" {{ old('category_id') == $category->id ? 'selected' :''}} >{{$category->title}}</option>
                         @endforeach
                     </select>
+                    @error('parent_id')
+                    <p>{{$message}}</p>
+                    @enderror
                 </div>
                 <div>
                     <label
@@ -63,12 +70,18 @@
                            max="10000"
                            value="{{ old('order') }}"
                            required>
+                           @error('order')
+                    <p>{{$message}}</p>
+                    @enderror
                 </div>
                 <label for="status">وضعیت</label>
                 <input type="checkbox" 
                 id="status" 
                 name="status"
                 value="1">
+                @error('status')
+                    <p>{{$status}}</p>
+                    @enderror
                 <div>
                     <label
                            for="meta_title">
@@ -80,6 +93,9 @@
                            id="meta_title"
                            value="{{ old('meta_title') }}"
                            required>
+                           @error('meta_title')
+                    <p>{{$message}}</p>
+                    @enderror
                 </div>
                 <div>
                     <label
@@ -92,6 +108,9 @@
                            id="meta_desc"
                            value="{{ old('meta_desc') }}"
                            required>
+                           @error('meta_desc')
+                    <p>{{$message}}</p>
+                    @enderror
                 </div>
                 <div>
                     <label
@@ -104,7 +123,7 @@
                               required>
                         {{old('description')}}
                     </textarea>
-                    @error('body')
+                    @error('description')
                     <p>{{$message}}</p>
                     @enderror
                 </div>

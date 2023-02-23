@@ -20,6 +20,9 @@
                            id="title"
                            value="{{ old('title') }}"
                            required>
+                           @error('title')
+                    <p>{{$status}}</p>
+                    @enderror
                 </div>
                 <div>
                     <label
@@ -41,7 +44,10 @@
                 id="hot" 
                 name="hot" 
                 value="1">
-                <div>
+                @error('hot')
+                    <p>{{$hot}}</p>
+                    @enderror
+                    <div>
                     <label
                            for="meta_desc">
                         توضیحات متا
@@ -52,6 +58,9 @@
                            id="meta_desc"
                            value="{{ old('meta_desc') }}"
                            required>
+                           @error('meta_desc')
+                    <p>{{$status}}</p>
+                    @enderror
                 </div>
                 <div>
                     <label

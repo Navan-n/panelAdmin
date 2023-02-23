@@ -19,34 +19,15 @@
         <p>{{$post[0]->body}}</p>
         <span>{{$post[0]->creatDate}}</span>
     </div>
-    <div>
-        <a href="/posts/{{$post[1]->slug}}"><h2>{{$post[1]->title}}</h2></a>
-        @foreach($post[1]->tags as $tag)
-           <a href="/tags/{{$tag->slug}}"> <div>{{$tag->title}}</div> </a>
-        @endforeach
-        @foreach($post[1]->categories as $category)
-           <a href="/categories/{{$category->slug}}"> <span>{{$category->title}}</span> </a>
-        @endforeach
-        <p>{{$post[1]->body}}</p>
-        <span>{{$post[1]->creatDate}}</span> 
-    </div>
-    <div>
-        <a href="/posts/{{$post[2]->slug}}"><h2>{{$post[2]->title}}</h2></a>
-        @foreach($post[2]->tags as $tag)
-           <a href="/tags/{{$tag->slug}}"> <div>{{$tag->title}}</div> </a>
-        @endforeach
-        @foreach($post[2]->categories as $category)
-           <a href="/categories/{{$category->slug}}"> <span>{{$category->title}}</span> </a>
-        @endforeach
-        <p>{{$post[2]->body}}</p>
-        <span>{{$post[2]->creatDate}}</span>
-    </div>
+    
 
     <a href="/posts/create">add post</a><br>
     <a href="/category/create">add Category</a><br>
     <a href="/tags/create">add tag</a><br>
-    <a href="/tags">go to tags</a><br>
+    <a href="/sliders/create">add slider</a><br>
     <a href="/categories">go to categories</a>
+    <a href="/tags">go to tags</a><br>
+    <a href="/sliders">go to Sliders</a><br>
 
 
 </body>

@@ -40,7 +40,11 @@
                 <input type="checkbox" 
                 id="hot" 
                 name="hot" 
-                value="{{$tag->hot}}">
+                value="1"
+                @if($tag->hot > 0)
+                checked
+                @endif
+                >
                 <div>
                     <label
                            for="meta_desc">

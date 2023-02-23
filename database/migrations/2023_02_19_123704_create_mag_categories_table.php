@@ -20,9 +20,9 @@ class CreateMagCategoriesTable extends Migration
             $table->string('meta_title');
             $table->mediumText('meta_desc');
             $table->longText('description')->nullable();
-            $table->bigInteger('parent')->nullable();
+            $table->bigInteger('parent_id')->nullable();
             $table->integer('order');
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(0);
             $table->bigInteger('createdBy')->nullable();
             $table->bigInteger('editedBy')->nullable();   
             $table->timestamps();

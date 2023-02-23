@@ -23,8 +23,8 @@ class CreateMagPostsTable extends Migration
             $table->integer('shop_category')->nullable();
             $table->string('slug')->unique();
             $table->bigInteger('auther')->default(0);
-            $table->tinyInteger('published')->nullable();
-            $table->timestamp('published_date')->nullable();
+            $table->tinyInteger('published');
+            $table->timestamp('published_date');
             $table->string('simulars')->nullable();
             $table->string('more')->nullable();
             $table->string('source');
@@ -33,12 +33,12 @@ class CreateMagPostsTable extends Migration
             $table->string('pic_small')->nullable();
             $table->string('pic_verysmall')->nullable();
             $table->string('video')->nullable();
-            $table->string('embed')->nullable();
+            $table->string('embed');
             $table->string('alt');
             $table->integer('view')->nullable();
             $table->integer('view_aff')->nullable();
             $table->tinyInteger('chief_select');
-            $table->tinyInteger('type')->nullable();
+            $table->tinyInteger('type');
             $table->tinyInteger('share')->nullable();
             $table->string('products')->nullable();
             $table->bigInteger('createdBy')->nullable();

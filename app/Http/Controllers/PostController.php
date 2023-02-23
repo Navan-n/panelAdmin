@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
 use App\Models\Magazine\Post;
+
 
 
 class PostController extends Controller
@@ -31,19 +33,57 @@ class PostController extends Controller
             {
                 $attribiutes=request()->validate([
                     'title'=>'required',
-                    'slug'=>'required|unique:mag_posts',
-                    'abstracted'=>'required',
-                    'body'=>'required',
-                    'meta_desc'=>'required',
                     'meta_title'=>'required',
-                    'alt'=>'required',
-                    'chief_select'=>'required',
+                    'meta_desc'=>'required',
+                    'abstracted'=>'required',
+                    'slug'=>'required|unique:mag_posts',
+                    'body'=>'required',
+                    'published'=>'required',
+                    'published_date'=>'required',
                     'source'=>'required',
-                    'source_link'=>'required'
+                    'source_link'=>'required',
+                    'chief_select'=>'required',
+                    'embed'=>'required',
+                    'alt'=>'required',
+                    'type'=>'required'
                 ]);
         
                 Post::create($attribiutes);
         
                 return redirect('/');
+            }
+
+            public function edit($id)
+            {
+                $post=Post::find($id);
+                return view('editposts', [
+                    'post'=>$post
+                ]);
+            }
+
+            public function update(Request $request, $id)
+            {
+                $request->validate([
+                    'title'=>'required',
+                    'meta_title'=>'required',
+                    'meta_desc'=>'required',
+                    'abstracted'=>'required',
+                    'slug'=>'required|unique:mag_posts,slug,'.$id,
+                    'body'=>'required',
+                    'published'=>'required',
+                    'published_date'=>'required',
+                    'source'=>'required',
+                    'source_link'=>'required',
+                    'chief_select'=>'required',
+                    'embed'=>'required',
+                    'alt'=>'required',
+                    'type'=>'required'
+                ]);
+
+                $post = $request->all();
+                unset($post['_token']);
+                Post::where('id', $id)->update($post);
+                return redirect('/');
+
             }
 }

@@ -7,7 +7,7 @@
     <title>Laravel</title>
 </head>
         <body>
-            <form method="POST" action="/category/{id}">
+            <form method="POST" action="/category/{{$category->id}}">
                 @csrf
                 <div>
                     <label
@@ -38,17 +38,21 @@
                 </div>
                 <div>
                     <label
-                           for="parent">
+                           for="parent_id">
                         دسته بندی پدر
                     </label>
                     <select 
-                        name="parent" 
-                        id="id">
+                        name="parent_id"
+                        id="parent_id">
+                            <option value="0">هیچ کدام</option>
                         @foreach(App\Models\Magazine\Category::all() as $category)
                             <option 
-                            value="{{$category->title}}" {{ old('category_id') == $category->id ? 'selected' :''}} >{{ucwords($category->title)}}</option>
+                            value="{{$category->id}}" {{ old('category_id') == $category->id ? 'selected' :''}} >{{$category->title}}</option>
                         @endforeach
                     </select>
+                    @error('parent')
+                    <p>{{$message}}</p>
+                    @enderror
                 </div>
                 <div>
                     <label
@@ -68,7 +72,11 @@
                 <input type="checkbox" 
                 id="status" 
                 name="status"
-                value="1">
+                value="1"
+                @if($category->status > 0)
+                checked
+                @endif
+                >
                 <div>
                     <label
                            for="meta_title">

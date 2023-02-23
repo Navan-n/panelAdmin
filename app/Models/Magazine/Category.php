@@ -18,12 +18,23 @@ class Category extends Model
         'status',
         'meta_desc',
         'meta_title',
-        'description'
+        'description',
+        'parent_id'
         
     ];
 
     public function posts()
     {
         return $this->belongsToMany(Post::class, 'mag_posts_category', 'category_id', 'post_id');
+    }
+
+    public function subcategory()
+    {
+        return $this->hasMany(Category::class, 'parent_id');
+    }
+
+    public function parent()
+    {
+        return $this->belongsTo(Category::class, 'parent_id');
     }
 }

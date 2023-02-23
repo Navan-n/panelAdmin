@@ -11,6 +11,8 @@
             <div><span>عنوان تگ:</span>{{$tag->title}}</div>
             <div><span>توضیحات:</span>{{$tag->body}}</div>
             <div><span>توضیحات متا:</span>{{$tag->meta_desc}}</div>
+            <div><span>لینک کوتاه:</span>{{$tag->slug}}</div>
+            <div><span>جذاب:</span>{{$tag->hot}}</div>
             <br>
         @endforeach
     </body>

@@ -13,15 +13,19 @@ class Post extends Model
 
     protected $fillable = [
         'title',
-        'slug',
+        'meta_title',
+        'meta_desc',
         'abstracted',
         'body',
-        'meta_desc',
-        'meta_title',
-        'alt',
-        'chief_select',
+        'slug',
+        'published',
+        'published_date',
         'source',
-        'source_link'
+        'source_link',
+        'chief_select',
+        'embed',
+        'alt',
+        'type',
     ];
 
     public function comments()

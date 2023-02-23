@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMagBannersTable extends Migration
+class CreateMagSlidersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,17 @@ class CreateMagBannersTable extends Migration
      */
     public function up()
     {
-        Schema::create('mag_banners', function (Blueprint $table) {
+        Schema::create('mag_sliders', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('alt');
             $table->string('pic')->nullable();
-            $table->string('code');
+            $table->string('pic_mobile')->nullable();
+            $table->string('category')->nullable();
             $table->string('link');
-            $table->string('landing_page');
-            $table->tinyInteger('row');
-            $table->tinyInteger('col');
-            $table->integer('order');
-            $table->integer('click')->nullable();
-            $table->tinyInteger('status');
-            $table->bigInteger('cratedBy')->nullable();
-            $table->bigInteger('editedBy')->nullable();
+            $table->string('position');
+            $table->bigInteger('CreatedBy')->nullable();
+            $table->bigInteger('EditedBy')->nullable();
             $table->timestamps();
         });
     }
@@ -39,6 +35,6 @@ class CreateMagBannersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mag_banners');
+        Schema::dropIfExists('mag_sliders');
     }
 }
