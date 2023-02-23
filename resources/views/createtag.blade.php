@@ -21,7 +21,7 @@
                            value="{{ old('title') }}"
                            required>
                            @error('title')
-                    <p>{{$status}}</p>
+                    <p>{{$message}}</p>
                     @enderror
                 </div>
                 <div>
@@ -59,7 +59,7 @@
                            value="{{ old('meta_desc') }}"
                            required>
                            @error('meta_desc')
-                    <p>{{$status}}</p>
+                    <p>{{$message}}</p>
                     @enderror
                 </div>
                 <div>

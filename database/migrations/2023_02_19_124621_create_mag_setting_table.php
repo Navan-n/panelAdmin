@@ -18,17 +18,17 @@ class CreateMagSettingTable extends Migration
             $table->string('title');
             $table->string('meta_title');
             $table->mediumText('description');
-            $table->string('logo_dark');
-            $table->string('logo_light');
+            $table->string('logo_dark')->nullable();
+            $table->string('logo_light')->nullable();
             $table->string('header_btn');
             $table->string('header_link');
             $table->string('area_code');
             $table->string('phone_number');
             $table->mediumText('mag_home_desc');
             $table->mediumText('mag_video_desc');
+            $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

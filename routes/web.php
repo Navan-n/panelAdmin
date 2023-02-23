@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PostController::class , 'index']);
@@ -36,6 +37,12 @@ Route::get('sliders/{id}/edit', [SliderController::class, 'edit']);
 
 Route::get('banners', [BannerController::class, 'index']);
 Route::post('banners/store', [BannerController::class, 'store']);
-Route::get('banners/create', [BannerController::class, 'create']);
 Route::post('banners/{id}', [BannerController::class, 'update']);
+Route::get('banners/create', [BannerController::class, 'create']);
 Route::get('banners/{id}/edit',[BannerController::class, 'edit']);
+
+Route::get('setting',[SettingController::class, 'index']);
+Route::post('setting/store', [SettingController::class, 'store']);
+Route::post('setting/{id}', [SettingController::class, 'update']);
+Route::get('setting/create', [SettingController::class, 'create']);
+Route::get('setting/{id}/edit', [SettingController::class, 'edit']);
