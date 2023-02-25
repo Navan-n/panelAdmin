@@ -5,6 +5,8 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\FaqItemController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\SettingController;
@@ -53,5 +55,20 @@ Route::post('posts/{post:slug}/comments', [PostCommentController::class, 'store'
 Route::post('comment/like',[PostCommentController::class, 'like']);
 Route::post('comment/dislike',[PostCommentController::class, 'dislike']);
 
+Route::get('pages',[PageController::class, 'index']);
 Route::post('pages/store',[PageController::class, 'store']);
+Route::post('pages/{id}', [PageController::class, 'update']);
 Route::get('pages/create',[PageController::class, 'create']);
+Route::get('pages/{id}/edit',[PageController::class, 'edit']);
+
+Route::get('faqs',[FaqController::class, 'index']);
+Route::post('faqs/store',[FaqController::class, 'store']);
+Route::post('faqs/{id}',[FaqController::class, 'update']);
+Route::get('faqs/create',[FaqController::class, 'create']);
+Route::get('faqs/{id}/edit',[FaqController::class, 'edit']);
+
+Route::get('faqsitem',[FaqItemController::class, 'index']);
+Route::post('faqsitem/store',[FaqItemController::class, 'store']);
+Route::post('faqsitem/{id}', [FaqItemController::class, 'update']);
+Route::get('faqsitems/create',[FaqItemController::class, 'create']);
+Route::get('faqsitem/{id}/edit',[FaqItemController::class, 'edit']);
