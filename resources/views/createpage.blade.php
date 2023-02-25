@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="fa">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Laravel</title>
-</head>
-        <body>
-            <form method="POST" action="/tags/store">
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    <form method="POST" action="/pages/store">
                 @csrf
                 <div>
                     <label
                            for="title">
-                        نام تگ
+                        عنوان صفحه
                     </label>
                     <input 
                            type="text"
@@ -27,45 +27,22 @@
                 <div>
                     <label
                            for="slug">
-                        آدرس کوتاه
-                    </label>
-                    <input
-                           type="text"
-                           name="slug"
-                           id="slug"
-                           value="{{old( 'slug' )}}"
-                           required>
-                    @error('slug')
-                    <p>{{$message}}</p>
-                    @enderror
-                </div>
-                <label for="hot">هشتگ داغ</label>
-                <input type="checkbox" 
-                id="hot" 
-                name="hot" 
-                value="1">
-                @error('hot')
-                    <p>{{$message}}</p>
-                    @enderror
-                    <div>
-                    <label
-                           for="meta_desc">
-                        توضیحات متا
+                        لینک کوتاه
                     </label>
                     <input 
                            type="text"
-                           name="meta_desc"
-                           id="meta_desc"
-                           value="{{ old('meta_desc') }}"
+                           name="slug"
+                           id="slug"
+                           value="{{ old('slug') }}"
                            required>
-                           @error('meta_desc')
+                           @error('slug')
                     <p>{{$message}}</p>
                     @enderror
                 </div>
                 <div>
                     <label
                            for="body">
-                        توضیحات 
+                        توضیح صفحه 
                     </label>
                     <textarea
                               name="body"
@@ -77,9 +54,9 @@
                     <p>{{$message}}</p>
                     @enderror
                 </div>
+                
             
                 <button type="submit">Submit</button>
             </form>
-
     </body>
 </html>

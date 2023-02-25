@@ -10,6 +10,7 @@ class PostController extends Controller
 {
         public function index()
     {
+        // dd("home page");
         $post = Post::with('tags' , 'categories')->get();
            
         return view('homepage',[
@@ -17,11 +18,11 @@ class PostController extends Controller
 
         ]);
     }
-        public function show(Post $post)
+        public function show(/*Post $post*/)
             {
-        
+        $post = Post::with('comments' , 'tags' , 'categories')->get();
         return view('posts', [
-            'post' => $post
+            'post' => $post[0]
         ]);
             }
         public function create()

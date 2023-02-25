@@ -15,17 +15,17 @@ class CreateMagCommentsTable extends Migration
     {
         Schema::create('mag_comments', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('post_id');
-            $table->bigInteger('customer_id');
+            $table->foreignId('post_id')->references('id')->on('mag_posts')->cascadeOnDelete();
+            $table->bigInteger('customer_id')->default(0);
             $table->string('name');
             $table->string('email');
             $table->longText('body');
-            $table->integer('like');
-            $table->integer('dislike');
-            $table->bigInteger('is_answer');
+            $table->integer('like')->default(0);
+            $table->integer('dislike')->default(0);
+            $table->bigInteger('is_answer')->default(0);
             $table->tinyInteger('status');
-            $table->bigInteger('createdBy');
-            $table->bigInteger('editedBy');
+            $table->bigInteger('createdBy')->nullable();
+            $table->bigInteger('editedBy')->nullable();
             $table->timestamps();
         });
     }
